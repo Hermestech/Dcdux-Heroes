@@ -10,6 +10,8 @@ import {
 import thunk from 'redux-thunk';
 import { logger } from './middlewares'
 import rootReducer from './reducers/rootReducer';
+import MainLayout from './components/MainLayout';
+
 
 function saveToLocalStorage(state) {
     try {
@@ -45,7 +47,9 @@ store.subscribe(() => saveToLocalStorage(store.getState()))
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <MainLayout>
+       <App />
+    </MainLayout>
     </Provider>
   </React.StrictMode>
 );

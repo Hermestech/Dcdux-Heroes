@@ -9,10 +9,31 @@ function mapHeroesToCards(heroes){
         alterEgo={hero.alterEgo}
         id={hero.id}
         key={hero.id}
+        favorite={hero.favorite}
         />)
 }
 
-export default function CardList({heroes}){
+export default function CardList({ heroes, searchedHeroes, valueInput }){
+
+    if (valueInput.length > 1 && searchedHeroes.length === 0) {
+        return (
+            <div className="HeroesList">
+                <h1>No results found</h1>
+            </div>
+        )
+    }
+
+    if(searchedHeroes.length > 0){
+        return (
+            <div className="HeroesList">
+            {
+                mapHeroesToCards(searchedHeroes)
+            }
+            </div>
+        )
+    }
+
+
     return (
         <div className="HeroesList">
         {
