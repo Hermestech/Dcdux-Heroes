@@ -1,26 +1,23 @@
 import { useParams } from 'react-router-dom'
-import { Layout, Col, Row } from 'antd/dist/antd'
-import { shallowEqual, useSelector, useDispatch } from "react-redux";
-
-
-const { Header, Content, Footer } = Layout
-
+import { Col, Row } from 'antd/dist/antd'
+import { shallowEqual, useSelector } from "react-redux";
 
 export default function HeroDetails () {
-    const heroes = useSelector( state => state.data.superheroes, shallowEqual)
-
-    console.log(heroes)
-
     const { id } = useParams()
+    const numericId = Number(id)
+    const heroes = useSelector( state => state.data.superheroes, shallowEqual) || []
+    const findingHero = heroes?.find(hero => hero.id === numericId)
+    console.log(findingHero)
+
     return (
         <Row>
-            <Col span={12}>
-                <h2>image from {id}</h2>
-            </Col>
-            <Col span={12}>
-                <h2>Details {id}</h2>
-            </Col>
-        </Row>
+        <Col xs={24} sm={12} md={8} lg={6}>
+          <img src={findingHero.imgUrl} alt="Superhero" style={{ maxWidth: '100%'}}/>
+        </Col>
+        <Col xs={24} sm={12} md={16} lg={18}>
+          {findingHero.description}
+        </Col>
+      </Row>
     )
 
 }
