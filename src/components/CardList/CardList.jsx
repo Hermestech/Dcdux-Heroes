@@ -1,4 +1,4 @@
-import CardComponent from "./Card";
+import CardComponent from "../Card/Card";
 
 function mapHeroesToCards(heroes){
     return heroes.map(hero => <CardComponent 

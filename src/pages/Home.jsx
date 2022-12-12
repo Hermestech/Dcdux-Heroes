@@ -1,5 +1,5 @@
 import * as React from "react";
-import CardList from "../components/CardList";
+import CardList from "../components/CardList/CardList"
 import { Col, Spin, Row } from "antd";
 import InputSearch from '../components/InputSearch';
 import "../App.css";

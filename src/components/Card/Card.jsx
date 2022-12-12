@@ -1,6 +1,6 @@
 import { Card } from "antd";
 import Meta from "antd/es/card/Meta";
-import './HeroesList.css'
+import '../CardList/HeroesList.css'
 import { Link } from "react-router-dom";
 import './Card.css'
 
