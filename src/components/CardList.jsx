@@ -7,6 +7,7 @@ function mapHeroesToCards(heroes){
         comic={hero.comic}
         description={hero.description}
         alterEgo={hero.alterEgo}
+        id={hero.id}
         key={hero.id}
         />)
 }
